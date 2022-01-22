@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/packages' , 'HomeController@show');
+
+Route::get('/packages/{package}', [PackageController::class, 'show']);
 Route::get('/', [HomeController::class,'homepage']);
 
 
