@@ -1,6 +1,6 @@
 @extends('app')
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="img/single_tour_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll" data-image-src="{{url('front/img/single_tour_bg_1.jpg')}}" data-natural-width="1400" data-natural-height="470">
 		<div class="parallax-content-2">
 			<div class="container">
 				<div class="row">
@@ -62,50 +62,50 @@
 						<div class="sp-slides">
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/1_medium.jpg" data-small="img/slider_single_tour/1_small.jpg" data-medium="img/slider_single_tour/1_medium.jpg" data-large="img/slider_single_tour/1_large.jpg" data-retina="img/slider_single_tour/1_large.jpg">
+								<img alt="Image" class="sp-image" src="/css/images/blank.gif" data-src="{{url('front/img/slider_single_tour/1_medium.jpg')}}">
 							</div>
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/2_medium.jpg" data-small="img/slider_single_tour/2_small.jpg" data-medium="img/slider_single_tour/2_medium.jpg" data-large="img/slider_single_tour/2_large.jpg" data-retina="img/slider_single_tour/2_large.jpg">
-							</div>
-
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/3_medium.jpg" data-small="img/slider_single_tour/3_small.jpg" data-medium="img/slider_single_tour/3_medium.jpg" data-large="img/slider_single_tour/3_large.jpg" data-retina="img/slider_single_tour/3_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="{{url('front/img/slider_single_tour/2_medium.jpg')}}">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/4_medium.jpg" data-small="img/slider_single_tour/4_small.jpg" data-medium="img/slider_single_tour/4_medium.jpg" data-large="img/slider_single_tour/4_large.jpg" data-retina="img/slider_single_tour/4_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="{{url('front/img/slider_single_tour/3_medium.jpg')}}">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/5_medium.jpg" data-small="img/slider_single_tour/5_small.jpg" data-medium="img/slider_single_tour/5_medium.jpg" data-large="img/slider_single_tour/5_large.jpg" data-retina="img/slider_single_tour/5_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="{{url('front/img/slider_single_tour/4_medium.jpg')}}">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/6_medium.jpg" data-small="img/slider_single_tour/6_small.jpg" data-medium="img/slider_single_tour/6_medium.jpg" data-large="img/slider_single_tour/6_large.jpg" data-retina="img/slider_single_tour/6_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="{{url('front/img/slider_single_tour/5_medium.jpg')}}">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/7_medium.jpg" data-small="img/slider_single_tour/7_small.jpg" data-medium="img/slider_single_tour/7_medium.jpg" data-large="img/slider_single_tour/7_large.jpg" data-retina="img/slider_single_tour/7_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="front/img/slider_single_tour/6_medium.jpg" data-small="front/img/slider_single_tour/6_small.jpg" data-medium="front/img/slider_single_tour/6_medium.jpg" data-large="front/img/slider_single_tour/6_large.jpg" data-retina="front/img/slider_single_tour/6_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/8_medium.jpg" data-small="img/slider_single_tour/8_small.jpg" data-medium="img/slider_single_tour/8_medium.jpg" data-large="img/slider_single_tour/8_large.jpg" data-retina="img/slider_single_tour/8_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="front/img/slider_single_tour/7_medium.jpg" data-small="front/img/slider_single_tour/7_small.jpg" data-medium="front/img/slider_single_tour/7_medium.jpg" data-large="front/img/slider_single_tour/7_large.jpg" data-retina="front/img/slider_single_tour/7_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/9_medium.jpg" data-small="img/slider_single_tour/9_small.jpg" data-medium="img/slider_single_tour/9_medium.jpg" data-large="img/slider_single_tour/9_large.jpg" data-retina="img/slider_single_tour/9_large.jpg">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="front/img/slider_single_tour/8_medium.jpg" data-small="front/img/slider_single_tour/8_small.jpg" data-medium="front/img/slider_single_tour/8_medium.jpg" data-large="front/img/slider_single_tour/8_large.jpg" data-retina="front/img/slider_single_tour/8_large.jpg">
+							</div>
+
+							<div class="sp-slide">
+								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="front/img/slider_single_tour/9_medium.jpg" data-small="front/img/slider_single_tour/9_small.jpg" data-medium="front/img/slider_single_tour/9_medium.jpg" data-large="front/img/slider_single_tour/9_large.jpg" data-retina="front/img/slider_single_tour/9_large.jpg">
 							</div>
 						</div>
 						<div class="sp-thumbnails">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/1_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/2_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/3_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/4_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/5_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/6_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/7_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/8_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/9_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/1_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/2_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/3_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/4_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/5_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/6_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/7_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/8_medium.jpg')}}">
+							<img alt="Image" class="sp-thumbnail" src="{{url('front/img/slider_single_tour/9_medium.jpg')}}">
 						</div>
 					</div>
 
@@ -357,7 +357,7 @@
 							<!-- End row -->
 							<hr>
 							<div class="review_strip_single">
-								<img src="img/avatar1.jpg" alt="Image" class="rounded-circle">
+								<img src="{{url('front/img/avatar1.jpg')}}" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>
@@ -370,7 +370,7 @@
 							<!-- End review strip -->
 
 							<div class="review_strip_single">
-								<img src="img/avatar3.jpg" alt="Image" class="rounded-circle">
+								<img src="{{url('front/img/avatar3.jpg')}}" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>
@@ -383,7 +383,7 @@
 							<!-- End review strip -->
 
 							<div class="review_strip_single last">
-								<img src="img/avatar2.jpg" alt="Image" class="rounded-circle">
+								<img src="{{url('front/img/avatar2.jpg')}}" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>

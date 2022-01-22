@@ -104,7 +104,7 @@
                         </strong> </p>
                     </div>
                     <div class="pricing-table-sign-up">
-                        <a href="payment.html" class="btn_1">BUY NOW!</a>
+                        <a href="{{url('packages/').'/'.$package->id}}" class="btn_1">BOOK NOW!</a>
                     </div>
                 </div>
                 <!-- End pricing-table-->
