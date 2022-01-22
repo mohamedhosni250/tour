@@ -20,7 +20,7 @@
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
 
-    <!-- COMMON CSS -->front/
+    <!-- COMMON CSS -->
 	<link href="{{asset('front/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/style.css')}}" rel="stylesheet">
 	<link href="{{asset('front/css/vendors.css')}}" rel="stylesheet">
@@ -372,51 +372,63 @@
         <!--/carousel-->
 
         <div class="white_bg">
-        <div class="container margin_60">
-            <div class="row small-gutters categories_grid">
-                <div class="col-sm-12 col-md-6">
-                    <a href="all_tours_list.html">
-                        <img src="front/img/img_cat_home_1.jpg" alt="" class="img-fluid">
-                        <div class="wrapper">
-                            <h2>Special Offers</h2>
-                            <p>1150 Locations</p>
-                        </div>
-                    </a>
+            <div class="container margin_60">
+                <div class="main_title">
+                    <h2><span>Affordable </span>packages for travellers</h2>
+                    <p>
+                        Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
+                    </p>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="row small-gutters mt-md-0 mt-sm-2">
-                        <div class="col-sm-6">
-                            <a href="all_tours_list.html">
-                                <img src="front/img/img_cat_home_2.jpg" alt="" class="img-fluid">
-                                <div class="wrapper">
-                                    <h2>Tours</h2>
-                                    <p>800 Locations</p>
-                                </div>
-                            </a>
+                
+    
+    
+                
+                <!-- End row plans-->
+    
+                <hr>
+    
+                
+                <!-- end row -->
+    
+                <div class="row" id="pricing_2">
+                 
+                    <!-- End col -->   
+                  @foreach ($packages as $package)
+                  <div class="col-lg-6 col-md-6">
+                    <div class="pricing-table green ">
+                        <span class="ribbon_2"></span>
+                        <div class="pricing-table-header">
+                            <span class="heading">{{$package->title}}</span>
+                            <span class="price-value"><span> Starting From{{$package->adult_price}}</span><span class="mo"> USD</span></span>
                         </div>
-                        <div class="col-sm-6">
-                            <a href="all_hotels_list.html">
-                                <img src="front/img/img_cat_home_3.jpg" alt="" class="img-fluid">
-                                <div class="wrapper">
-                                    <h2>Hotels</h2>
-                                    <p>650 Locations</p>
-                                </div>
-                            </a>
+                        <div class="pricing-table-space"></div>
+                        <div class="pricing-table-features">
+                            <p><strong>The 1rd or 2nd morning flights</strong> </p>
+                            <p><strong>You will be picked up from your hotel/accommodation.</strong> </p>
+                            <p><strong>The flight goes up to enjoy the west bank of luxor landscape.
+                            </strong> </p>
+                            <p><strong>Catch a glimpse of the sun and the sky.
+                            </strong> </p>
+                            <p><strong>Themed tour is possible.
+                            </strong> </p>
                         </div>
-                        <div class="col-sm-12 mt-sm-2">
-                            <a href="all_restaurants_list.html">
-                                <img src="front/img/img_cat_home_4.jpg" alt="" class="img-fluid">
-                                <div class="wrapper">
-                                    <h2>Restaurants</h2>
-                                    <p>1132 Locations</p>
-                                </div>
-                            </a>
+                        <div class="pricing-table-sign-up">
+                            <a href="payment.html" class="btn_1">BUY NOW!</a>
                         </div>
                     </div>
+                    <!-- End pricing-table-->
                 </div>
+                  @endforeach
+                    <!-- End col -->
+
+    
+                </div>
+                <!-- end row -->
+    
+                <hr>
+
+    
             </div>
-            <!--/categories_grid-->
-        </div>
         <!-- /container -->
         </div>
         <!-- /white_bg -->
