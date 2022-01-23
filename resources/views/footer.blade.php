@@ -13,7 +13,7 @@
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Login</a></li>
                     <li><a href="#">Register</a></li>
-                     <li><a href="#">Terms and condition</a></li>
+                    <li><a href="#">Terms and condition</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -22,7 +22,7 @@
                     <li><a href="#">Community blog</a></li>
                     <li><a href="#">Tour guide</a></li>
                     <li><a href="#">Wishlist</a></li>
-                     <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Gallery</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
@@ -113,7 +113,8 @@
                     <input type="email" class="form-control" name="email_forgot" id="email_forgot">
                     <i class="icon_mail_alt"></i>
                 </div>
-                <p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
+                <p>You will receive an email containing a link allowing you to reset your password to a new preferred
+                    one.</p>
                 <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
             </div>
         </div>
@@ -123,12 +124,14 @@
 <!-- /Sign In Popup -->
 
 <!-- Modal Review -->
-<div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
+<div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myReviewLabel">Write your review</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div id="message-review">
@@ -138,12 +141,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input name="name_review" id="name_review" type="text" placeholder="Your name" class="form-control">
+                                <input name="name_review" id="name_review" type="text" placeholder="Your name"
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input name="lastname_review" id="lastname_review" type="text" placeholder="Your last name" class="form-control">
+                                <input name="lastname_review" id="lastname_review" type="text"
+                                    placeholder="Your last name" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -151,7 +156,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input name="email_review" id="email_review" type="email" placeholder="Your email" class="form-control">
+                                <input name="email_review" id="email_review" type="email" placeholder="Your email"
+                                    class="form-control">
                             </div>
                         </div>
                     </div>
@@ -220,10 +226,12 @@
                     </div>
                     <!-- End row -->
                     <div class="form-group">
-                        <textarea name="review_text" id="review_text" class="form-control" style="height:100px" placeholder="Write your review"></textarea>
+                        <textarea name="review_text" id="review_text" class="form-control" style="height:100px"
+                            placeholder="Write your review"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="verify_review" class=" form-control" placeholder="Are you human? 3 + 1 =">
+                        <input type="text" id="verify_review" class=" form-control"
+                            placeholder="Are you human? 3 + 1 =">
                     </div>
                     <input type="submit" value="Submit" class="btn_1" id="submit-review">
                 </form>
@@ -234,14 +242,14 @@
 <!-- End modal review -->
 
 <!-- Common scripts -->
-<script src="{{asset('front/js/jquery-2.2.4.min.js')}}"></script>
-<script src="{{asset('front/js/common_scripts_min.js')}}"></script>
-<script src="{{asset('front/js/functions.js')}}"></script>
+<script src="{{ asset('front/js/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('front/js/common_scripts_min.js') }}"></script>
+<script src="{{ asset('front/js/functions.js') }}"></script>
 
 <!-- Date and time pickers -->
-<script src="{{asset('front/js/jquery.sliderPro.min.js')}}"></script>
+<script src="{{ asset('front/js/jquery.sliderPro.min.js') }}"></script>
 <script type="text/javascript">
-    $(document).ready(function ($) {
+    $(document).ready(function($) {
         $('#Img_carousel').sliderPro({
             width: 960,
             height: 500,
@@ -273,10 +281,12 @@
 
 <!-- Map -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="{{asset('front/js/map.js')}}"></script>
-<script src="{{asset('front/js/infobox.js')}}"></script>
+<script src="{{ asset('front/js/map.js') }}"></script>
+<script src="{{ asset('front/js/infobox.js') }}"></script>
 
 
+
+@stack('scripts')
 </body>
 
 </html>
