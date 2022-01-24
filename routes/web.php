@@ -1,6 +1,9 @@
 <?php
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PackageController;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/packages/{package}', [PackageController::class, 'show']);
-Route::get('/', [HomeController::class,'homepage']);
+Route::get('/checkout', function (Request $request) {
 
-
+    return view('checkout', compact('request'));
+})->name('checkout');
+Route::get('/', [HomeController::class, 'homepage']);
