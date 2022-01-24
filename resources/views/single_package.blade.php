@@ -471,95 +471,104 @@
                         aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on
                         map</a>
                 </p>
-                <div class="box_style_1 expose">
-                    <h3 class="inner">- Booking -</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label><i class="icon-calendar-7"></i> Select a date</label>
-                                <input class="date-pick form-control" data-date-format="M d, D" type="text">
+                {{-- start of form --}}
+                <form action="{{ route('checkout') }}">
+                    @csrf
+                    @method('get')
+                    <div class="box_style_1 expose">
+                        <h3 class="inner">- Booking -</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><i class="icon-calendar-7"></i> Select a date</label>
+                                    <input name="date" class="date-pick form-control" type="text">
+                                    {{-- data-date-format="M d, D" --}}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label><i class=" icon-clock"></i> Time</label>
-                                <input class="time-pick form-control" value="12:00 AM" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div id="adult_form" class="form-group">
-                                <label>Adults</label>
-								<input hidden id="adults_price" type="button"
-								value="{{ $package->adult_price }}">
-                                <input hidden id="child_price" type="button"
-								value="{{ $package->child_price }}">
-						
-                                <div class="numbers-row">
-									<input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><i class=" icon-clock"></i> Time</label>
+                                    <input class="time-pick form-control" value="12:00 AM" type="text">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div id="child_form" class="form-group">
-                                <label>Children</label>
-                                <div class="numbers-row">
-                                    <input type="text" value="0" id="children" class="qty2 form-control"
-                                        name="quantity">
+                        <div class="row">
+                            <div class="col-6">
+                                <div id="adult_price" class="form-group">
+                                    <label>Adults : {{ $package->adult_price }} usd </label>
+                                    <input name="adult_price" hidden id="adults_price" type="text"
+                                        value="{{ $package->adult_price }}">
+                                    <input name="child_price" hidden id="childs_price" type="text"
+                                        value="{{ $package->child_price }}">
+                                        <input name="package_name" hidden id="package_name" type="text"
+                                        value="{{ $package->title }}">
+                                    <div class="numbers-row">
+                                        <input name="adult_qty" type="text" value="1" id="adults"
+                                            class="qty2 form-control" name="quantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="child_price" class="col-6">
+                                <div class="form-group">
+                                    <label>Children : {{ $package->child_price }} usd </label>
+                                    <div class="numbers-row">
+                                        <input name="child_qty" type="text" value="0" id="children"
+                                            class="qty2 form-control" name="quantity">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <table class="table table_summary">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Adults
-                                </td>
-                                <td class="text-right">
-                                    2
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Children
-                                </td>
-                                <td class="text-right">
-                                    0
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    adult amount
-                                </td>
-                                <td  class="text-right">
-                                    <span class="adult_total"> {{ $package->adult_price }} </span>USD
-                                 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Child amount
-                                </td>
-                               
-                                <td  class="text-right">
-                                    <span class="child_total"> {{ $package->adult_price }} </span>USD
-                                 </td>
-                            </tr>
-                            <tr class="total">
+                        <br>
+                        <table class="table table_summary">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Adults
+                                    </td>
+                                    <td id="adult_count" class="text-right">
+                                        0
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Children
+                                    </td>
+                                    <td id="child_count" class="text-right">
+                                        0
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Adult Amount
+                                    </td>
+                                    <td id="total1" class="text-right">
+                                        <span class="adult_total"> {{ $package->adult_price }} </span> USD
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Child Amount
+                                    </td>
+                                    <td id="total1" class="text-right">
+                                        <span class="child_total"> 0 </span> USD
+                                    </td>
+                                </tr>
+                                {{-- <tr class="total">
                                 <td>
                                     Total cost
                                 </td>
-                                <td id="total" class="text-right">
+                                <td class="text-right">
                                     150 USD
                                 </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a class="btn_full" href="cart.html">Book now</a>
-                    <a class="btn_full_outline" href="#"><i class=" icon-heart"></i> Add to whislist</a>
-                </div>
+                            </tr> --}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <button type="submit" class="btn_full">Book now</button>
+                </form>
+
+                {{-- end of form --}}
                 <!--/box_style_1 -->
 
                 <div class="box_style_4">
@@ -584,30 +593,22 @@
 
 @push('scripts')
     <script>
-        var total = 0 ;
-        var adultPrice ;
-        var childPrice
         $(document).ready(function() {
-	
-         $('#adult_form .button_inc').click(function(){
-			 adultPrice = document.getElementById('adults').value * document.getElementById('adults_price').value;
-		$('.adult_total').text(adultPrice);
-        
-        $('#total').text(adultPrice);
-        total = adultPrice + childPrice;
-		 });
-         $('#child_form .button_inc').click(function(){
-			 childPrice = document.getElementById('children').value * document.getElementById('child_price').value;
-		
-		$('.child_total').text(childPrice);
+            $('#adult_count').text(document.getElementById('adults').value);
+            $('#adult_price .button_inc').click(function() {
+                var adultPrice = document.getElementById('adults').value * document.getElementById(
+                    'adults_price').value;
 
-      
-        total = adultPrice + childPrice;
-               
-		 });
+                $('.adult_total').text(adultPrice);
+                $('#adult_count').text(document.getElementById('adults').value);
+            });
+            $('#child_price .button_inc').click(function() {
+                var childPrice = document.getElementById('children').value * document.getElementById(
+                    'childs_price').value;
+                $('.child_total').text(childPrice);
+                $('#child_count').text(document.getElementById('children').value);
 
-         total = adultPrice + childPrice;
-         console.log(total);
+            });
         });
     </script>
 @endpush
