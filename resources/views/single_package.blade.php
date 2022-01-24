@@ -489,20 +489,20 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-group">
+                            <div id="adult_form" class="form-group">
                                 <label>Adults</label>
-								<input hidden id="adults_pricee" type="button"
+								<input hidden id="adults_price" type="button"
 								value="{{ $package->adult_price }}">
+                                <input hidden id="child_price" type="button"
+								value="{{ $package->child_price }}">
 						
                                 <div class="numbers-row">
-								
 									<input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
-                               
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="form-group">
+                            <div id="child_form" class="form-group">
                                 <label>Children</label>
                                 <div class="numbers-row">
                                     <input type="text" value="0" id="children" class="qty2 form-control"
@@ -534,15 +534,24 @@
                                 <td>
                                     adult amount
                                 </td>
-                                <td id="total1" class="text-right">
-                                   <span class="adult_total"> {{ $package->adult_price }} </span>USD
+                                <td  class="text-right">
+                                    <span class="adult_total"> {{ $package->adult_price }} </span>USD
+                                 </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Child amount
                                 </td>
+                               
+                                <td  class="text-right">
+                                    <span class="child_total"> {{ $package->adult_price }} </span>USD
+                                 </td>
                             </tr>
                             <tr class="total">
                                 <td>
                                     Total cost
                                 </td>
-                                <td class="text-right">
+                                <td id="total" class="text-right">
                                     150 USD
                                 </td>
                             </tr>
@@ -575,14 +584,30 @@
 
 @push('scripts')
     <script>
+        var total = 0 ;
+        var adultPrice ;
+        var childPrice
         $(document).ready(function() {
 	
-         $('.button_inc').click(function(){
-			var adultPrice = document.getElementById('adults').value * document.getElementById('adults_pricee').value;
-			console.log(adultPrice);
+         $('#adult_form .button_inc').click(function(){
+			 adultPrice = document.getElementById('adults').value * document.getElementById('adults_price').value;
 		$('.adult_total').text(adultPrice);
+        
+        $('#total').text(adultPrice);
+        total = adultPrice + childPrice;
+		 });
+         $('#child_form .button_inc').click(function(){
+			 childPrice = document.getElementById('children').value * document.getElementById('child_price').value;
+		
+		$('.child_total').text(childPrice);
+
+      
+        total = adultPrice + childPrice;
                
 		 });
+
+         total = adultPrice + childPrice;
+         console.log(total);
         });
     </script>
 @endpush
