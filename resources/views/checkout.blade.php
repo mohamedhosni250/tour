@@ -66,8 +66,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Full name</label>
-                                    <input value="{{ Auth::user()->name }}" type="text" class="form-control" id="name"
-                                        name="name">
+                                    <input value="{{ Auth::user()->name }}" type="text" class="form-control"
+                                        id="name" name="name">
                                 </div>
                             </div>
 
@@ -76,7 +76,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" id="email_booking" name="email" class="form-control">
+                                    <input value="{{ Auth::user()->email }}" type="email" id="email_booking"
+                                        name="email" class="form-control">
                                 </div>
                             </div>
 
