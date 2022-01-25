@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('email');
             $table->string('number');
             $table->text('pickup_location');
-            $table->date('order_date');
+            $table->string('order_date');
             $table->string('package_name');
             $table->string('adult_count');
             $table->string('child_count');

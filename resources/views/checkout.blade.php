@@ -51,62 +51,62 @@
     <!-- End position -->
 
     <div class="container margin_60">
-     <form action="{{route('order.store')}}" method="post">
-        @csrf
-        <div class="row">
-            <div class="col-lg-8 add_bottom_15">
-                <div class="form_title">
-                    <h3><strong>1</strong>Your Details</h3>
-                    <p>
-                        Mussum ipsum cacilds, vidis litro abertis.
-                    </p>
-                </div>
-                <div class="step">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Full name</label>
-                                <input type="text" class="form-control" id="name"
-                                    name="name">
+        <form action="{{ route('order.store') }}" method="post">
+            @csrf
+            <div class="row">
+                <div class="col-lg-8 add_bottom_15">
+                    <div class="form_title">
+                        <h3><strong>1</strong>Your Details</h3>
+                        <p>
+                            Mussum ipsum cacilds, vidis litro abertis.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Full name</label>
+                                    <input value="{{ Auth::user()->name }}" type="text" class="form-control" id="name"
+                                        name="name">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email_booking" name="email" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Telephone</label>
+                                    <input type="text" id="telephone_booking" name="number" class="form-control">
+                                </div>
                             </div>
                         </div>
-                      
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="email_booking" name="email" class="form-control">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>PickUP Location</label>
+                                    <input type="text" id="pickup_location" name="pickup_location"
+                                        class="form-control">
+                                </div>
                             </div>
                         </div>
-                       
+                        <input type="text" name="order_date" hidden value="{{ $request->date }}">
+                        <input type="text" name="adult_count" hidden value=" {{ $request->adult_qty }}">
+                        <input type="text" name="child_count" hidden value=" {{ $request->child_qty }}">
+                        <input type="text" name="package_name" hidden value=" {{ $request->package_name }}">
+                        <input type="text" name="total" hidden
+                            value="{{ $request->adult_price * $request->adult_qty + $request->child_price * $request->child_qty }}"></button>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Telephone</label>
-                                <input type="text" id="telephone_booking" name="number"
-                                    class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>PickUP Location</label>
-                                <input type="text" id="pickup_location" name="pickup_location"
-                                    class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <input type="text" name="order_date" hidden value="{{$request->date}}">
-                    <input type="text" name="adult_count" hidden value=" {{ $request->adult_qty }}">
-                    <input type="text" name="child_count" hidden value=" {{ $request->child_qty }}">
-                    <input type="text" name="package_name" hidden value=" {{ $request->package_name }}">
-                    <input type="text" name="total" hidden value="{{ $request->adult_price * $request->adult_qty + $request->child_price * $request->child_qty }}"></button>
-                </div>
-                <!--End step -->
-                {{-- <div id="policy">
+                    <!--End step -->
+                    {{-- <div id="policy">
                     <h4>Cancellation policy</h4>
                     <div class="form-group">
                         <label>
@@ -115,70 +115,70 @@
                     </div>
                     <a href="confirmation.html" class="btn_1 green medium">Book now</a>
                 </div> --}}
+                </div>
+
+                <aside class="col-lg-4">
+                    <div class="box_style_1">
+                        <h3 class="inner">- Summary -</h3>
+                        <table class="table table_summary">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td class="text-right">
+                                        {{ $request->date }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Time
+                                    </td>
+                                    <td class="text-right">
+                                        12.00 AM
+                                    </td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>
+                                        Adults
+                                    </td>
+                                    <td class="text-right">
+                                        {{ $request->adult_qty }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Children
+                                    </td>
+                                    <td class="text-right">
+                                        {{ $request->child_qty }}
+                                    </td>
+                                </tr>
+
+                                <tr class="total">
+                                    <td>
+                                        Total cost
+                                    </td>
+                                    <td class="text-right">
+                                        {{ $request->adult_price * $request->adult_qty + $request->child_price * $request->child_qty }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn_full" type="submit">Book now</button>
+                        <a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>
+                    </div>
+                    <div class="box_style_4">
+                        <i class="icon_set_1_icon-57"></i>
+                        <h4>Need <span>Help?</span></h4>
+                        <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+                        <small>Monday to Friday 9.00am - 7.30pm</small>
+                    </div>
+                </aside>
+
             </div>
-
-            <aside class="col-lg-4">
-                <div class="box_style_1">
-                    <h3 class="inner">- Summary -</h3>
-                    <table class="table table_summary">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Date
-                                </td>
-                                <td class="text-right">
-                                    {{ $request->date }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Time
-                                </td>
-                                <td class="text-right">
-                                    12.00 AM
-                                </td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <td>
-                                    Adults
-                                </td>
-                                <td class="text-right">
-                                    {{ $request->adult_qty }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Children
-                                </td>
-                                <td class="text-right">
-                                    {{ $request->child_qty }}
-                                </td>
-                            </tr>
-
-                            <tr class="total">
-                                <td>
-                                    Total cost
-                                </td>
-                                <td class="text-right">
-                                    {{ $request->adult_price * $request->adult_qty + $request->child_price * $request->child_qty }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button class="btn_full" type="submit" >Book now</button>
-                    <a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>
-                </div>
-                <div class="box_style_4">
-                    <i class="icon_set_1_icon-57"></i>
-                    <h4>Need <span>Help?</span></h4>
-                    <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-                    <small>Monday to Friday 9.00am - 7.30pm</small>
-                </div>
-            </aside>
-
-        </div>
-     </form>
+        </form>
     </div>
     <!--End container -->
 </main>

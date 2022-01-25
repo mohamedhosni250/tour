@@ -36,19 +36,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-            Order::create([
-                'user_id' => 1,
-                'name' => $request->name ,
-                'email' =>$request->email , 
-                'number' => $request->number,      
-                'order_date' => Carbon::parse($request->order_date)->format('d-m-Y') , 
-                'package_name' => $request->package_name, 
-                'pickup_location'=> $request->pickup_location,
-                'total' => $request->total ,
-                'adult_count'=> $request->adult_count , 
-                'child_count' => $request->child_count
-            ]);
-            return redirect()->view('home');
+        Order::create([
+            'user_id' => 1,
+            'name' => $request->name,
+            'email' => $request->email,
+            'number' => $request->number,
+            'order_date' => Carbon::parse($request->order_date)->format('d-m-Y'),
+            'package_name' => $request->package_name,
+            'pickup_location' => $request->pickup_location,
+            'total' => $request->total,
+            'adult_count' => $request->adult_count,
+            'child_count' => $request->child_count
+        ]);
+        return redirect()->route('confirm', ["name" => $request->name]);
     }
 
     /**
