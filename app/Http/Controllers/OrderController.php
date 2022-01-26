@@ -48,7 +48,7 @@ class OrderController extends Controller
             'adult_count' => $request->adult_count,
             'child_count' => $request->child_count
         ]);
-        return redirect()->route('confirm', ["name" => $request->name]);
+        return redirect()->route('credit', ["name" => $request->name]);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
@@ -33,3 +34,5 @@ Route::get('/confirm', function (Request $request) {
 
     return view('confirm', compact('name'));
 })->name('confirm');
+
+Route::get('/credit', [CreditController::class, 'credit'])->name('credit');
