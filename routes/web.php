@@ -30,9 +30,12 @@ Route::get('/checkout', function (Request $request) {
 Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
 Route::get('/confirm', function (Request $request) {
-    $name = $request->name;
+    $total = $request->total ; 
+    $package_name = $request->$request->package_name;
 
-    return view('confirm', compact('name'));
+    return view('confirm', compact('total','package_name'));
 })->name('confirm');
 
 Route::get('/credit', [CreditController::class, 'credit'])->name('credit');
+Route::get('/callback', [CreditController::class, 'callback'])->name('callback');
+

@@ -36,6 +36,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        
         Order::create([
             'user_id' => 1,
             'name' => $request->name,
@@ -48,7 +49,7 @@ class OrderController extends Controller
             'adult_count' => $request->adult_count,
             'child_count' => $request->child_count
         ]);
-        return redirect()->route('credit', ["name" => $request->name]);
+        return redirect()->route('credit', ["total" => $request->total ,'package_name' =>$request->package_name]);
     }
 
     /**

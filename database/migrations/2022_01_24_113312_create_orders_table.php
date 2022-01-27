@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->string('adult_count');
             $table->string('child_count');
             $table->string('total');
+            $table->enum('status',['unpaid','paid'])->default('unpaid');
             $table->timestamps();
         });
     }

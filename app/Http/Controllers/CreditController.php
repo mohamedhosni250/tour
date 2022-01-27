@@ -11,19 +11,22 @@ class CreditController extends Controller
 {
     public function credit(Request $request)
     {
+
+      $total = $request->total*100 ;
+      $package_name = $request->package_name;
         $token = $this->getToken();
         $items = [
             [
-                "name" => 'mohamed hosni',
+                "name" => $package_name,
                 "amount_cents" => "500000",
-                "description" => "Smart Watch",
+                "description" => "tour package",
                 "quantity" => "1"
             ]
         ];
-        $order = $this->createOrder($token, $items);
-        $paymentToken = $this->getPaymentToken($order, $token);
+        $order = $this->createOrder($token, $items,$total);
+        $paymentToken = $this->getPaymentToken($order, $token ,$total);
 
-        return Redirect::away('https://accept.paymob.com/api/acceptance/iframes/161163' . '?payment_token=' . $paymentToken);
+        return Redirect::away('https://accept.paymob.com/api/acceptance/iframes/161164' . '?payment_token=' . $paymentToken);
     }
 
     public function getToken()
@@ -34,29 +37,29 @@ class CreditController extends Controller
         return $response->object()->token;
     }
 
-    public function createOrder($token, $items)
+    public function createOrder($token, $items ,$total)
     {
 
 
         $data = [
             "auth_token" =>   $token,
             "delivery_needed" => "false",
-            "amount_cents" => "100",
+            "amount_cents" => $total,
             "currency" => "EGP",
             "items" => $items,
 
         ];
-        $response = Http::post('https://accept.paymob.com/api/ecommerce/orders', $data);
+        $response = Http::post('https://accept.paymob.com/api/ecommerce/orders', $data );
         return $response->object();
     }
 
-    public function getPaymentToken($order, $token)
+    public function getPaymentToken($order, $token ,$total)
     {
         $billingData = [
             "apartment" => "803",
-            "email" => "claudette09@exa.com",
+            "email" => Auth::user()->email,
             "floor" => "42",
-            "first_name" => "Clifford",
+            "first_name" => Auth::user()->name,
             "street" => "Ethan Land",
             "building" => "8028",
             "phone_number" => "+86(8)9135210487",
@@ -69,7 +72,7 @@ class CreditController extends Controller
         ];
         $data = [
             "auth_token" => $token,
-            "amount_cents" => "100",
+            "amount_cents" => $total,
             "expiration" => 3600,
             "order_id" => $order->id,
             "billing_data" => $billingData,
@@ -81,8 +84,9 @@ class CreditController extends Controller
     }
     public function callback(Request $request)
     {
-
+       
         $data = $request->all();
+        
         ksort($data);
         $hmac = $data['hmac'];
         $array = [
@@ -113,10 +117,12 @@ class CreditController extends Controller
                 $connectedString .= $element;
             }
         }
-        $secret = env('PAYMOB_HMAC');
+        $secret = "E588C3D7D22BA4ACAE48AEF756613ECB";
         $hased = hash_hmac('sha512', $connectedString, $secret);
+       
         if ($hased == $hmac) {
             echo "secure";
+            
             exit;
         }
         echo 'not secure';
